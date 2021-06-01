@@ -16,7 +16,7 @@ public class TestForecastCreator {
 	}
 
 	Forecast forecastFromFile(String fileName) throws IOException {
-		InputStream is = null.getClass().getClassLoader().getResource(fileName).openStream();
+		InputStream is = getClass().getClassLoader().getResource(fileName).openStream();
 
 		String forecastJson = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))
 				.lines().collect(Collectors.joining("\n"));

@@ -2,7 +2,7 @@ package net.urover.acme;
 
 import com.github.prominence.openweathermap.api.enums.WeatherCondition;
 import com.github.prominence.openweathermap.api.model.Temperature;
-import com.github.prominence.openweathermap.api.model.forecast.Forecast;
+
 import com.github.prominence.openweathermap.api.model.forecast.WeatherForecast;
 import groovy.lang.Range;
 
@@ -35,7 +35,7 @@ public class TimeSlice {
 		timeSlice.apiForecast=forecast;
 
 		Temperature temp = forecast.getTemperature();
-		if(temp.getValue() > 75d){
+		if(temp.getValue() >= 75d){
 			timeSlice.temp=TempDescription.WARM;
 		}else if(temp.getValue() < 55d ){
 			timeSlice.temp=TempDescription.COOL;

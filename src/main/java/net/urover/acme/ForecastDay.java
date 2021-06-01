@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ForecastDay implements Comparable<ForecastDay>{
-//	private List<WeatherForecast> timeSlices = new ArrayList<>();
-	private List<WeatherForecast> timeSlices = new ArrayList<>();
+	private List<TimeSlice> timeSlices = new ArrayList<>();
 	private LocalDate date;
 	static public DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_LOCAL_DATE;
 
@@ -18,7 +17,7 @@ public class ForecastDay implements Comparable<ForecastDay>{
 	//may be overthinking safety for first draft.  Chill out, Paul.
 	public void addTimeForecast(WeatherForecast forecast){
 		if(isSameDate(forecast)) {
-			timeSlices.add(forecast);
+			timeSlices.add(TimeSlice.fromApiForecast(forecast));
 		}else{
 			throw new IllegalArgumentException("Tried to add forecast with date ["+
 					forecast.getForecastTime().format(dateTimeFormat));
@@ -41,7 +40,7 @@ public class ForecastDay implements Comparable<ForecastDay>{
 	}
 
 	//access
-	public List<WeatherForecast> getTimeSlices() {
+	public List<TimeSlice> getTimeSlices() {
 		return timeSlices;
 	}
 
