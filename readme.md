@@ -1,3 +1,9 @@
+Some notes:
+* Groovy is incuded solely for a custom logging converter to make it easier to experiment with and explore the OWM api library.  It's not used in any of the "real" code.
+
+
+
+___
 Welcome!  You are a brand new developer starting out at Acme Software Incorporated!  You have just completed your first week, including some excellent onboarding sessions to learn about the history of the company, the current technology architecture, and the future roadmap for the platform.  You have had some great team lunches and tasty welcome donuts.
 
 You have a basic understanding of Acme’s business, which is to work with smaller, independent restaurants to  engage with their customers and potential customers to come in for specials, happy hours and events. Acme does this through various channels including automated phone calls, texts, email and others.  Acme prides itself on the ability to determine both the best message to use to engage food lovers and when to most effectively engage them.
