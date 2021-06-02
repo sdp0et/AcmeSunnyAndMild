@@ -1,6 +1,7 @@
+package net.urover.acme;
+
 import com.github.prominence.openweathermap.api.OpenWeatherMapClient;
 import com.github.prominence.openweathermap.api.model.forecast.Forecast;
-import net.urover.acme.WeatherPortal;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
