@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ForecastDay implements Comparable<ForecastDay>{
-	private List<TimeSlice> timeSlices = new ArrayList<>();
-	private LocalDate date;
+	protected List<TimeSlice> timeSlices = new ArrayList<>();
+	protected LocalDate date;
 	static public DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_LOCAL_DATE;
 
 
@@ -41,7 +41,7 @@ public class ForecastDay implements Comparable<ForecastDay>{
 
 	//access
 	public List<TimeSlice> getTimeSlices() {
-		return timeSlices;
+		return new ArrayList<>(timeSlices);
 	}
 
 	public int getTimeSliceCount(){

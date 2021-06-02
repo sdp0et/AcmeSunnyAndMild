@@ -105,7 +105,7 @@ class TimeSliceSortingHatTest {
 	}
 
 
-	static private class CheatyTimeSlice extends TimeSlice{
+	static class CheatyTimeSlice extends TimeSlice{
 		private CheatyTimeSlice() {}
 		static public TimeSlice with(LocalDateTime time, Condition condition, TempDescription temp){
 			TimeSlice timeSlice =  new TimeSlice();

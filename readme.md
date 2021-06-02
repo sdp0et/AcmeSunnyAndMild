@@ -1,8 +1,30 @@
 Some notes:
 * Groovy is incuded solely for a custom logging converter to make it easier to experiment with and explore the OWM api library.  It's not used in any of the "real" code.
 
+* THe excercise description didn't give too full information about selecting
+  the best time/method.
+    * Assumption that "sunny" and "clear" are equivalent.
+    * I made assumptions about the preference hierarchy and on resolving cases that
+      overlap or weren't specified (temperature is over 75 but no sunny)
+        * Assumption that the order of condition/method criteria in the description
+          is also preferred order of contact (i.e. we'd rather text people when
+          they're happy than call them when they're bummed)
+        * For cases where the weather is warm (75 degrees+) but not clear or raining,
+          we treat that as the middle category (it's warm, but not sunny, so let's
+          slide into their inbox rather than risk annoying them with a text)
+        * if multiple time slices in a day are "equal" we reach out during the
+          earliest one just so there's a consistent behavior in case we modify later
+     * We do not care about time of day.  We'll call you at 2AM if that's the best
+          weather available for that day.
+
+  
+
+It's a scrum team so the details are open to refinement on the next pass if the
+  customer wants something else, right?
 
 
+---
+Excercise Description
 ___
 Welcome!  You are a brand new developer starting out at Acme Software Incorporated!  You have just completed your first week, including some excellent onboarding sessions to learn about the history of the company, the current technology architecture, and the future roadmap for the platform.  You have had some great team lunches and tasty welcome donuts.
 
