@@ -8,7 +8,7 @@ import groovy.lang.Range;
 
 import java.time.LocalDateTime;
 
-public class TimeSlice {
+public class TimeSlice implements Comparable<TimeSlice>{
 	enum TempDescription {
 		WARM,
 		TEMPERATE,
@@ -20,14 +20,28 @@ public class TimeSlice {
 		NONE;
 	}
 
-	private LocalDateTime time;
-	private TempDescription temp;
-	private Condition condition;
-	private WeatherForecast apiForecast;
+	protected LocalDateTime time;
+	protected TempDescription temp;
+	protected Condition condition;
+	protected WeatherForecast apiForecast;
 
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("TimeSlice{");
+		sb.append("time=").append(time);
+		sb.append(", temp=").append(temp);
+		sb.append(", condition=").append(condition);
+		sb.append('}');
+		return sb.toString();
+	}
+
+	@Override
+	public int compareTo(TimeSlice o) {
+		return time.compareTo(o.getTime());
+	}
 
 	//construction
-	private TimeSlice(){}
+	protected TimeSlice(){}
 
 	static public TimeSlice fromApiForecast(WeatherForecast forecast){
 		TimeSlice timeSlice =  new TimeSlice();
@@ -45,6 +59,8 @@ public class TimeSlice {
 
 		return timeSlice;
 	}
+
+
 
 	private static Condition getWeatherCondition(WeatherForecast forecast) {
 		int weatherStateId = forecast.getWeatherState().getId();
